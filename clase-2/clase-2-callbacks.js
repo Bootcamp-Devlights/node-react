@@ -12,15 +12,16 @@ function operacion(a, b, cb) {
     cb(result);
   }, 5000);
 
+  console.log(result);
 }
 
 operacion(2, 3, callback)
 
-const arreglo = [1, 2 , 3];
+// const arreglo = [1, 2 , 3];
 
-function filter(cb) {
-  // Callback sync (sincrono)
-  arreglo.forEach(elemento => cb(elemento))
-}
+// function filter(cb) {
+//   // Callback sync (sincrono)
+//   arreglo.forEach(elemento => cb(elemento))
+// }
 
-filter((element) => console.log(element))
+// filter((element) => console.log(element))
