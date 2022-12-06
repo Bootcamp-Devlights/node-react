@@ -1,14 +1,23 @@
 const http = require("http");
-
+const fs = require("fs");
 
 const server = http.createServer((request, response) => {
   response.writeHead(200, "Exito", { "Content-Type": "text/html" });
 
-  console.log("request", request);
+  fs.readFile("./index-inexistente.html", (err, data) => {
+    if (err) {
+      fs.readFile("./index-error.html", (err2, data2) => {
+        if (err2) {
+          throw err2;
+        }
 
-  console.log("Servidor esta funcionando");
+        response.end(data2);
+      })
+    } else {
+      response.end(data);
+    }
 
-  response.end("Respuesta finalizada");
+  });
 })
 
 server.listen(3000, "127.0.0.1", (error) => {
