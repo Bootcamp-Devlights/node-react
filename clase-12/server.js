@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use("/api", apiRoutes);
 
-db.sync().then(() => {
+db.sync({  }).then(() => {
   app.listen(config.SERVER_PORT);
 }).catch((error) => {
   console.log("Hubo un error al conectarse con la DB", error);

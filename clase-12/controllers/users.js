@@ -45,3 +45,23 @@ export const updateUser = async (req, res) => {
     res.status(500).json({ error });
   }
 }
+
+export const createUserTask = async (req, res) => {
+  try {
+    const tasks = await userRepository.createUserTask(req.body, req.params.userId)
+
+    res.json({ tasks })
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+}
+
+export const getAllTasksByUserId = async (req, res) => {
+  try {
+    const tasks = await userRepository.getAllUserTasksById(req.params.userId)
+
+    res.json({ tasks })
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+}
