@@ -1,0 +1,1 @@
+const jsxElement = <div></div>;

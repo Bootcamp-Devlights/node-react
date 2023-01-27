@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script type="text/babel">
+      const rootElement = document.querySelector("#app");
+      const number = Math.random();
+      const footerStyles = { color: number > 0.5 ? 'gray' : 'yellow' };
+
+      const MyHeader = (props) => (
+        <header style={{ color: 'red', border: '2px solid red', padding: 10 }}>
+          <ul>
+            <li>Menu {props.value}</li>
+          </ul>
+        </header>
+      );
+      const MyBody = () => (<main className="header">Body</main>);
+      const MyFooter = () => (<footer style={footerStyles}>Copyright</footer>);
+
+      const app = (
+        <div>
+          <MyHeader value={number} />
+          <MyBody />
+          <MyFooter />
+        </div>
+      );
+
+      ReactDOM.render(app, rootElement);
+    </script>
+  </body>
+</html>
