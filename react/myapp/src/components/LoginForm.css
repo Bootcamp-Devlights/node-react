@@ -1,0 +1,30 @@
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.LoginFormBottom {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.LoginForm label {
+  margin-bottom: 10px;
+}
+
+.LoginForm input {
+  border: 1px solid #E8E8E8;
+  border-radius: 5px;
+  margin-bottom: 11px;
+  height: 50px;
+}
+
+.RememberContainer {
+  display: flex;
+  align-items: center;
+}

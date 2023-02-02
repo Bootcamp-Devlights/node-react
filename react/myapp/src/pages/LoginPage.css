@@ -1,0 +1,27 @@
+.LoginPageContainer {
+  display: flex;
+  height: 100vh;
+}
+
+.LoginFormContainer {
+  display: flex;
+  flex: 0 1 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginHeroContainer {
+  flex: 0 1 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .LoginHeroContainer {
+    display: none;
+  }
+
+  .LoginFormContainer {
+    flex: 1;
+    padding: 0 10px;
+  }
+}
