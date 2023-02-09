@@ -1,6 +1,4 @@
-import { GoogleLoginButton } from "../components/GoogleLoginButton";
 import { Hero } from "../components/Hero";
-import { LoginButton } from "../components/LoginButton";
 import { LoginForm } from "../components/LoginForm";
 import { LoginFormFooter } from "../components/LoginFormFooter";
 import { LoginFormHeader } from "../components/LoginFormHeader";
@@ -13,10 +11,8 @@ export function LoginPage() {
         <Hero />
       </div>
       <div className="LoginFormContainer">
-         <LoginFormHeader />
+        <LoginFormHeader />
         <LoginForm />
-        <LoginButton />
-        <GoogleLoginButton />
        <LoginFormFooter />
       </div>
     </div>

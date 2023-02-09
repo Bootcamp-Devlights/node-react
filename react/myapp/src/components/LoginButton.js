@@ -1,5 +1,5 @@
 import "./LoginButton.css"
 
-export function LoginButton() {
-  return <button className="LoginButton" type="submit">Login now</button>
+export function LoginButton({ onLoginClick }) {
+  return <button className="LoginButton" type="submit" onClick={onLoginClick}>Login now</button>
 }
