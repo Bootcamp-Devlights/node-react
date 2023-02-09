@@ -17,7 +17,7 @@ export const createUser = async (req, res) => {
   try {
     const user = await userRepository.createUser(req.body);
 
-    await sendMail(user.email, user.name);
+    // await sendMail(user.email, user.name);
 
     res.json({ user });
   } catch (error) {
@@ -62,5 +62,19 @@ export const getAllTasksByUserId = async (req, res) => {
     res.json({ tasks })
   } catch (error) {
     res.status(500).json({ error });
+  }
+}
+
+export const login = async (req, res) => {
+  try {
+    const user = await userRepository.login(req.body);
+
+    if (user) {
+      res.json("Ingreso exitoso")
+    } else {
+      res.status(401).json("Ingreso no autorizado");
+    }
+  } catch (error)  {
+    res.status(401).json("Ingreso no autorizado");
   }
 }

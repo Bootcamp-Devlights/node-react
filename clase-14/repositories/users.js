@@ -76,6 +76,21 @@ const getAllUserTasksById = async (userId) => {
   return user;
 }
 
+const login = async (userData) => {
+  const user = await User.findOne({ 
+    where: {
+      email: userData.email,
+      password: userData.password
+    }
+  })
+
+  if (user) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 export default {
   getAllUsers,
   createUser,
@@ -83,5 +98,6 @@ export default {
   updateUser,
   getUserById,
   createUserTask,
-  getAllUserTasksById
+  getAllUserTasksById,
+  login
 };

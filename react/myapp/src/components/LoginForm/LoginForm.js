@@ -1,29 +1,37 @@
-import { useState } from "react"
-import { GoogleLoginButton } from "./GoogleLoginButton";
-import { LoginButton } from "./LoginButton";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/users";
+import { GoogleLoginButton } from "../GoogleLoginButton";
+import { LoginButton } from "../LoginButton";
 import "./LoginForm.css";
 
 export function LoginForm() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   function onEmailChange(event) {
-    setEmail(event.target.value)
+    setEmail(event.target.value);
   }
 
   function onPasswordChange(event) {
-    setPassword(event.target.value)
+    setPassword(event.target.value);
   }
 
-  function onFormSubmit(event) {
+  async function onFormSubmit(event) {
     event.preventDefault();
 
-    console.log("email", email)
-    console.log("password", password)
+    try {
+      await loginUser({ email, password });
+      
+      navigate("/");
+    } catch (error) {
+      console.log("hubo un error", error);
+    }
   }
 
   return (
-    <form className="LoginForm">
+    <form className="LoginForm" onSubmit={onFormSubmit}>
       <label>Email</label>
       <input type="email" name="email" onChange={onEmailChange} />
       <label>Password</label>
@@ -35,13 +43,8 @@ export function LoginForm() {
         </div>
         <a href="/#">Forgot Password?</a>
       </div>
-      <LoginButton onLoginClick={onFormSubmit} />
+      <LoginButton />
       <GoogleLoginButton />
-      <div>
-        Usuario: {email}
-        <br />
-        Password: {password}
-      </div>
     </form>
   );
 }

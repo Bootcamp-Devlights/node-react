@@ -6,7 +6,8 @@ import {
   getAllUsers,
   getUserById,
   updateUser,
-  getAllTasksByUserId
+  getAllTasksByUserId,
+  login
 } from "../controllers/users.js";
 
 const userRoutes = Router();
@@ -18,5 +19,6 @@ userRoutes.put("/:userId", updateUser);
 userRoutes.delete("/:userId", deleteUser);
 userRoutes.post("/:userId/task", createUserTask)
 userRoutes.get("/:userId/tasks", getAllTasksByUserId)
+userRoutes.post("/login", login)
 
 export default userRoutes;

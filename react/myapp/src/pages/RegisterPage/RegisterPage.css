@@ -1,0 +1,27 @@
+.RegisterPageContainer {
+  display: flex;
+  height: 100vh;
+}
+
+.RegisterFormContainer {
+  display: flex;
+  flex: 0 1 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.RegisterHeroContainer {
+  flex: 0 1 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .RegisterHeroContainer {
+    display: none;
+  }
+
+  .RegisterFormContainer {
+    flex: 1;
+    padding: 0 10px;
+  }
+}

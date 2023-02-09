@@ -30,6 +30,7 @@ const User = db.define("User", {
   },
   lastName: DataTypes.STRING,
   address: DataTypes.STRING,
+  password: DataTypes.STRING,
 });
 
 User.hasMany(Task);
